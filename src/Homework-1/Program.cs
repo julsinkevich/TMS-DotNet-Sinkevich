@@ -7,7 +7,7 @@ namespace Homework_1
         static void Main(string[] args)
         {
             Console.WriteLine("Если хотите узнать какой сегодня день - введите '1'. " +
-                "Еcли хотите узнать какой был день недели -введите '2'.");
+                "Если хотите узнать, какой был день недели определенной даты -введите '2'.");
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice) || choice != 1 && choice != 2)
             {
@@ -22,9 +22,11 @@ namespace Homework_1
                 Console.WriteLine("Day of week:" + dt.DayOfWeek);
                 Console.WriteLine("Day of year:" + dt.DayOfYear);
             }
-            else if (choice == 2)
+            else 
             {
-            int year, month, day;
+                int year;
+                int month;
+                int day;
             Console.WriteLine("Введите год в формате 'хххх'");
                 year = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите месяц в формате 'хх'");
@@ -41,10 +43,10 @@ namespace Homework_1
                     Console.WriteLine("Ошибка.");
                     Console.Write("Введите день заново: ");
                 }
-                DateTime dt1 = new DateTime(year, month, day);
-                Console.WriteLine(dt1.ToLongDateString());
-                Console.WriteLine("Day of week:" + dt1.DayOfWeek);
-                Console.WriteLine("Day of year:" + dt1.DayOfYear);
+                DateTime data = new DateTime(year, month, day);
+                Console.WriteLine(data.ToLongDateString());
+                Console.WriteLine("Day of week:" + data.DayOfWeek);
+                Console.WriteLine("Day of year:" + data.DayOfYear);
                 Console.ReadKey();
                 Console.Clear();
             }
