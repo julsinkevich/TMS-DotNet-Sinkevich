@@ -28,7 +28,6 @@ namespace Homework_1
             Console.WriteLine("Введите год в формате 'хххх'");
                 year = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите месяц в формате 'хх'");
-                // month = int.Parse(Console.ReadLine());
                 var min = 1;
                 var max = 12;
                 while (!int.TryParse(Console.ReadLine(), out month) || month < min || month > max)
