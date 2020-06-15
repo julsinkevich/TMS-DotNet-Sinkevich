@@ -6,7 +6,7 @@ namespace Homework_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Если хотите узнать какой сегодня день - введите '1'. " +
+            Console.WriteLine("Если хотите узнать, какой сегодня день - введите '1'. " +
                 "Если хотите узнать, какой был день недели определенной даты -введите '2'.");
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice) || choice != 1 && choice != 2)
