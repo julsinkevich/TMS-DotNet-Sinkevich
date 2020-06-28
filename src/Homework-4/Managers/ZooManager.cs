@@ -25,7 +25,7 @@ namespace hw4.Managers
             }
             else
             {
-                Console.WriteLine("Животнogo в зоопарке нет.");
+                Console.WriteLine("Животнoгo в зоопарке нет.");
             }
         }
         public void GetAllAnimal()
