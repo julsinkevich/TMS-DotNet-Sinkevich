@@ -24,7 +24,7 @@ namespace Homework_3
             Console.WriteLine("View tasks:");
             foreach (Note note in notes)
             {
-                Console.WriteLine(note.Message + " " + note.Date.ToString("dd:MM:yyyy HH:mm"));
+                Console.WriteLine(note.Message + " " + note.Date.ToString("MM:dd:yyyy HH:mm"));
             }
 
             Console.ReadKey();
