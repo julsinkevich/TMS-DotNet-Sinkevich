@@ -38,7 +38,7 @@ namespace Homework_3
 
         static DateTime InputDate()
         {
-            Console.WriteLine("Enter date: \"day:month:year hour:minute\" ");
+            Console.WriteLine("Enter date: \"month:day:year hour:minute\" ");
             DateTime dateInput;
             while (!DateTime.TryParse(Console.ReadLine(),
                           CultureInfo.InvariantCulture,

@@ -8,5 +8,6 @@ namespace hw4.Interfaces
        void Rename(Animal animal,string name);
        void GetInfo(Animal animal);
        Habitat SetHabitat( string Habitat);
+       KindType SetKindType(string KindType);
     }
 }

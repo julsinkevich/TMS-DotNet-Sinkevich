@@ -54,5 +54,14 @@ namespace hw4.Managers
             }
             return Habitat.None;
         }
+        public KindType SetKindType(string kindtype)
+        {
+
+            if (Enum.TryParse(kindtype, true, out KindType kindtypeEnum))
+            {
+                return kindtypeEnum;
+            }
+            return KindType.None;
+        }
     }
 }

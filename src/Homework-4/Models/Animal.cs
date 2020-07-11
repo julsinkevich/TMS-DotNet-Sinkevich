@@ -26,7 +26,7 @@ namespace hw4.Models
         public Animal(string name, KindType kind, Habitat habitat)
         {
             Name = name;
-            Kind = Kind;
+            Kind = kind;
             Habitat = habitat;
         }
         public string Name { get; set; }

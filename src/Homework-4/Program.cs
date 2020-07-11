@@ -65,8 +65,10 @@ namespace hw4
         {
             Console.WriteLine("Введите имя:");
             Console.WriteLine("Введите среду обитания:");
+            Console.WriteLine("Введите тип питания:");
             var name = Console.ReadLine();
             var habitat = Console.ReadLine();
+            var kindtype = Console.ReadLine();
             Animal animal;
             if (!string.IsNullOrEmpty(name))
             {
