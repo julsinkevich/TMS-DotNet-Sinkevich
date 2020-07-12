@@ -100,9 +100,9 @@ namespace Homework_5
         private static void ShowMenu()
         {
             Console.WriteLine("Выберите карту:");
-            Console.WriteLine("1.");
-            Console.WriteLine("2.");
-            Console.WriteLine("3.");
+            Console.WriteLine("Карта 1.");
+            Console.WriteLine("Карта 2.");
+            Console.WriteLine("Карта 3.");
             Console.WriteLine("0.Выход.");
             Console.WriteLine();
 
@@ -111,39 +111,38 @@ namespace Homework_5
             var owner = CreateOwner("Vladimir", "Stsko");
             
             switch (userInput)
-                {
-                    case 0:
-                        {
-                            Environment.Exit(0);
-                        }
-                        break;
-                    case 1:
-                        {
-                            var card = CreateCard(owner, 10);
+            {
+                case 0:
+                    {
+                        Environment.Exit(0);
+                    }
+                    break;
+                case 1:
+                    {
+                        var card = CreateCard(owner, 10);
                         atmManager.ShowInfo(card, owner);
                         atmManager.ShowBalance(card);
                         Operations(card);
                     }
-                        break;
-                    case 2:
-                        {
+                   break;
+               case 2:
+                    {
                         var card = CreateCard(owner, 100, CurrencyType.Euro, PaymentSystemType.MasterCard);
                         atmManager.ShowInfo(card, owner);
                         atmManager.ShowBalance(card);
                         Operations(card);
                     }
-                        break;
-                    case 3:
-                        {
+                    break;
+                case 3:
+                    {
                         var card = CreateCard(owner, 77, CurrencyType.Usd, PaymentSystemType.Visa);
                         atmManager.ShowInfo(card, owner);
                         atmManager.ShowBalance(card);
                         Operations(card);
                     }
-                        break;
+                    break;
                 }
             }
-
         private static void ShowCardOperation()
         {
             Console.WriteLine();
@@ -151,8 +150,6 @@ namespace Homework_5
             Console.WriteLine("1.Снять деньги.");
             Console.WriteLine("2.Добавить сумму.");
             Console.WriteLine("3.Вернуться в главное меню.");
-            /* Console.WriteLine("3.Отказаться от получения сообщения об изменении остатка.");
-             Console.WriteLine("4.Подписаться от получения сообщения об изменении остатка.");*/
             Console.WriteLine("0.Выход.");
             Console.WriteLine();
         }
