@@ -1,12 +1,12 @@
 ﻿using Homework_5.Interfaces;
 using Homework_5.Models;
 using System;
-using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Homework_5.Managers
 {
-   public class AtmManager : IAtm
+    public class AtmManager : IAtm
     {
         public delegate void AccountHandler(string message);
         public event AccountHandler Notify;
@@ -29,21 +29,45 @@ namespace Homework_5.Managers
         {
             Console.WriteLine($"Добрый день, {owner.Name} {owner.Surname} " +
                 $"\nCрок действия вашей карты истекает {card.ExpirationDate}" +
-                $"\nТип Вашей карты {card.CardType}");
+                $"\nТип Вашей карты {card.CardType}" +
+                $"\nВаша карта: {card.IsActive.StatusToString()}");
         }
         public void GetCash(Card card, int amount)
         {
             card.Balance -= amount;
             Notify?.Invoke($"Со счета снято: {amount}.");
-         }
+        }
         public void AddCash(Card card, int putmoney)
         {
             card.Balance += putmoney;
             Notify?.Invoke($"На счет поступило: {putmoney}.");
         }
-        public void BlockCard(Card card)
+        public void ToggleBlockCard(Card card)
         {
-            
+            if (!card.IsActive)
+            {
+                card.IsActive = true;
+            }
+            else
+            {
+                card.IsActive = false;
+            }
+            Console.WriteLine($"Операция выполнена успешно.");
         }
+        public bool CanUserCard(Card card)
+        {
+            return card.IsActive;
+        }
+    }
+    public static class ConvertStatus
+    {
+       public static string StatusToString(this bool status)
+       {
+            if (!status)
+            {
+                return "Неактива";
+            }
+            return "Активна";
+       }
     }
 }

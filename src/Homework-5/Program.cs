@@ -18,6 +18,7 @@ namespace Homework_5
             card.Currency = currency;
             card.Owner = owner;
             card.CardType = cardtype;
+            card.IsActive = true;
 
             return card;
         }
@@ -34,43 +35,67 @@ namespace Homework_5
         {
 
             ShowMenu();
-            
             Console.ReadKey();
         }
         public static void Operations(Card card)
         {
-            ShowCardOperation();
-            int.TryParse(Console.ReadLine(), out int userInput1);
-            switch (userInput1)
+            while (true)
             {
-                case 0:
-                    {
-                        Environment.Exit(0);
-                    }
-                    break;
-                case 1:
-                    {
-                        Console.WriteLine("Введите снимаемую сумму:");
-                        int withdrawnamount = Convert.ToInt32(Console.ReadLine());
-                        Subscription();
-                        atmManager.GetCash(card, withdrawnamount);
-                        atmManager.ShowBalance(card);
-                    }
-                    break;
-                case 2:
-                    {
-                        Console.WriteLine("Введите добавляемую сумму:");
-                        int putmoney = Convert.ToInt32(Console.ReadLine());
-                        Subscription();
-                        atmManager.AddCash(card, putmoney);
-                        atmManager.ShowBalance(card);
-                    }
-                    break;
-                case 3:
-                    {
-                        ShowMenu();
-                    }
-                    break;
+                ShowCardOperation();
+                var isActive = atmManager.CanUserCard(card);
+                int.TryParse(Console.ReadLine(), out int userInput1);
+                switch (userInput1)
+                {
+                    case 0:
+                        {
+                            Environment.Exit(0);
+                        }
+                        break;
+                    case 1:
+                        {
+                            if (isActive)
+                            {
+                                Console.WriteLine("Введите снимаемую сумму:");
+                                int withdrawnamount = Convert.ToInt32(Console.ReadLine());
+                                Subscription();
+                                atmManager.GetCash(card, withdrawnamount);
+                                atmManager.ShowBalance(card);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Карточка заблокирована.");
+                            }
+                        }
+                        break;
+                    case 2:
+                        {
+                            if (isActive)
+                            {
+                                Console.WriteLine("Введите добавляемую сумму:");
+                                int putmoney = Convert.ToInt32(Console.ReadLine());
+                                Subscription();
+                                atmManager.AddCash(card, putmoney);
+                                atmManager.ShowBalance(card);
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Карточка заблокирована.");
+                                Console.ResetColor();
+                            }
+                        }
+                        break;
+                    case 3:
+                        {
+                            ShowMenu();
+                        }
+                        break;
+                    case 4:
+                        {
+                            atmManager.ToggleBlockCard(card);
+                        }
+                        break;
+                }
             }
         }
         public static void Subscription()
@@ -109,7 +134,6 @@ namespace Homework_5
             int.TryParse(Console.ReadLine(), out int userInput);
 
             var owner = CreateOwner("Vladimir", "Stsko");
-            
             switch (userInput)
             {
                 case 0:
@@ -124,8 +148,8 @@ namespace Homework_5
                         atmManager.ShowBalance(card);
                         Operations(card);
                     }
-                   break;
-               case 2:
+                    break;
+                case 2:
                     {
                         var card = CreateCard(owner, 100, CurrencyType.Euro, PaymentSystemType.MasterCard);
                         atmManager.ShowInfo(card, owner);
@@ -141,8 +165,8 @@ namespace Homework_5
                         Operations(card);
                     }
                     break;
-                }
             }
+        }
         private static void ShowCardOperation()
         {
             Console.WriteLine();
@@ -150,10 +174,11 @@ namespace Homework_5
             Console.WriteLine("1.Снять деньги.");
             Console.WriteLine("2.Добавить сумму.");
             Console.WriteLine("3.Вернуться в главное меню.");
+            Console.WriteLine("4.Блокировать/Разблокировать карту.");
             Console.WriteLine("0.Выход.");
             Console.WriteLine();
         }
-        public static void ShowMessage(string message) 
+        public static void ShowMessage(string message)
         {
             Console.WriteLine(message);
         }

@@ -12,5 +12,6 @@ namespace Homework_5.Models
         public User Owner { get; set; }
         public decimal Balance { get; set; }
         public CurrencyType Currency { get; set; }
+        public bool IsActive { get; set; }
     }
 }
