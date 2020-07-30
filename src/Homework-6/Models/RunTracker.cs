@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Homework_6.Models
 {
-    class RunTracker
+    public class RunTracker
     {
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public int Distance { get; set; }
+        public double Distance { get; set; }
+        public TimeSpan TimeWorkout { get; set; }
     }
 }
