@@ -4,15 +4,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Homework_6.Models;
 using System.Linq;
-using System.IO;
-using System.Net;
-using Newtonsoft.Json; //www.youtube.com/watch?v=k91jTTdr0GM
 
 namespace Homework_6.Managers
 {
     public class FitnessManager : IFitness
     {
-        List<RunTracker> run = new List<RunTracker>();
+        List<RunTracker> run = new List<RunTracker>(); //инкапсуляция private 
         public List<int> step = new List<int>();
         List<int> pulse = new List<int>();
         public int GetSteps()
@@ -96,29 +93,13 @@ namespace Homework_6.Managers
             }
             Console.ReadKey();
         }
-        public void ShowDayActivity(int water)
+        public void ShowDayActivity(int water) //сделать переменную так же как с пульсом и прочей ересью, да будет int
         {
             Console.WriteLine($"Your activity today:" +
                 $"\n{run.Sum(x => x.TimeWorkout.TotalSeconds)}(seconds) and distance {run.Sum(x => x.Distance)}(kilometers)" +
                 $"\n steps {step.Sum()}" +
                 $"\n pulse {string.Join(";",pulse)} " +
                 $"\n water {water}");
-        }
-        public void Weather()
-        {
-            string url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk&units=metric&appid=1d6de5c626ed1f4cef6c29a6e70b6944";
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            string response;
-            using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
-            {
-                response = streamReader.ReadToEnd();
-            }
-            WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(response);
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Temperature in {0}: {1} °C", weatherResponse.Name, weatherResponse.Main.Temp);
-            Console.ResetColor();
-        }
+        }       
     }
 }

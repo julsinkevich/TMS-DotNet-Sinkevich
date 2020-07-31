@@ -1,5 +1,6 @@
 ﻿using Homework_6.Managers;
 using Homework_6.Models;
+using Homework_6.Services;
 using System;
 
 namespace Homework_6
@@ -7,10 +8,11 @@ namespace Homework_6
     class Program
     {
         public static FitnessManager fitnessManager = new FitnessManager();
+        public static WeatherServices weatherSetvise = new WeatherServices();
         private static int water = 0;
         public static void Main(string[] args)
         {
-            fitnessManager.Weather();
+            weatherSetvise.Weather();
             ScreenSaver();
         }
         public static void ScreenSaver()
@@ -115,6 +117,6 @@ namespace Homework_6
                     }
                     break;
             }
-        }
+        }//события на шаги и на пульс 
     }
 }
