@@ -117,6 +117,6 @@ namespace Homework_6
                     }
                     break;
             }
-        }//события на шаги и на пульс 
+        }
     }
 }

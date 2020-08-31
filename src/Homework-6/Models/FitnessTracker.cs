@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Homework_6.Models
 {
-    class FitnessTracker //убрать, почистить
+    class FitnessTracker 
     {
         public DateTime DateTime { get; set; }
         public int Steps { get; set; }

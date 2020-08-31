@@ -9,7 +9,7 @@ namespace Homework_6.Managers
 {
     public class FitnessManager : IFitness
     {
-        List<RunTracker> run = new List<RunTracker>(); //инкапсуляция private 
+        List<RunTracker> run = new List<RunTracker>(); 
         public List<int> step = new List<int>();
         List<int> pulse = new List<int>();
         public int GetSteps()
@@ -93,7 +93,7 @@ namespace Homework_6.Managers
             }
             Console.ReadKey();
         }
-        public void ShowDayActivity(int water) //сделать переменную так же как с пульсом и прочей ересью, да будет int
+        public void ShowDayActivity(int water) 
         {
             Console.WriteLine($"Your activity today:" +
                 $"\n{run.Sum(x => x.TimeWorkout.TotalSeconds)}(seconds) and distance {run.Sum(x => x.Distance)}(kilometers)" +

@@ -10,7 +10,7 @@ namespace Homework_6.Services
 {
     class WeatherServices
     {
-        public void Weather() //загнать в сервис(отдельная папка)
+        public void Weather() 
         {
             string url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk&units=metric&appid=1d6de5c626ed1f4cef6c29a6e70b6944";
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
