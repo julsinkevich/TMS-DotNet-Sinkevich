@@ -2,7 +2,7 @@
 
 namespace Homework_1
 {
-    class Program
+    internal class Program
     {
         public static void Main(string[] args)
         {
@@ -30,12 +30,14 @@ namespace Homework_1
             Console.ReadKey();
             Console.Clear();
         }
-        static void DisplayCurrentDate()
+
+        private static void DisplayCurrentDate()
         {
             var datenow = DateTime.Now;
             DisplayDate(datenow);
         }
-        static DateTime GetEnteredDate()
+
+        private static DateTime GetEnteredDate()
         {
             int year;
             int month;
@@ -61,13 +63,15 @@ namespace Homework_1
 
             return date;
         }
-        static void DisplayDate(DateTime date)
+
+        private static void DisplayDate(DateTime date)
         {
             Console.WriteLine("Date time:" + date.ToLongDateString());
             Console.WriteLine("Day of week:" + date.DayOfWeek);
             Console.WriteLine("Day of year:" + date.DayOfYear);
         }
-        static void CalculateData(DateTime dateNow, DateTime enteredDate)
+
+        private static void CalculateData(DateTime dateNow, DateTime enteredDate)
         {
             Console.WriteLine("Calculate Date");
             if (dateNow > enteredDate)
@@ -83,6 +87,5 @@ namespace Homework_1
                 Console.WriteLine("0");
             }
         }
-
     }
 }

@@ -2,11 +2,13 @@
 using hw4.Models;
 
 namespace hw4.Interfaces
+{
+    internal interface IAnimalManager
     {
-    interface IAnimalManager
-    {
-       void Rename(Animal animal,string name);
-       void GetInfo(Animal animal);
-       Habitat SetHabitat( string Habitat);
+        void Rename(Animal animal, string name);
+
+        void GetInfo(Animal animal);
+
+        Habitat SetHabitat(string Habitat);
     }
 }

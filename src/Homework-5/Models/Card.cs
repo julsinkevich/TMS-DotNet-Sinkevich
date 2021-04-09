@@ -1,6 +1,5 @@
 ﻿using Homework_5.Enums;
 using System;
-using System.Data;
 
 namespace Homework_5.Models
 {

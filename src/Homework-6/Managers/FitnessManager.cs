@@ -1,22 +1,24 @@
 ﻿using Homework_6.Interfaces;
+using Homework_6.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Homework_6.Models;
 using System.Linq;
 
 namespace Homework_6.Managers
 {
     public class FitnessManager : IFitness
     {
-        List<RunTracker> run = new List<RunTracker>(); 
+        private List<RunTracker> run = new List<RunTracker>();
         public List<int> step = new List<int>();
-        List<int> pulse = new List<int>();
+        private List<int> pulse = new List<int>();
+
         public int GetSteps()
         {
             Random random = new Random();
-            return random.Next(0,40001);
+            return random.Next(0, 40001);
         }
+
         public int GetPulse()
         {
             Random random = new Random();
@@ -24,6 +26,7 @@ namespace Homework_6.Managers
             pulse.Add(p);
             return p;
         }
+
         public int Water(int water)
         {
             string glass;
@@ -43,10 +46,11 @@ namespace Homework_6.Managers
             }
             else
             {
-                Water(water);       
+                Water(water);
             }
             return newWater;
         }
+
         public void RunType()
         {
             string task;
@@ -71,7 +75,7 @@ namespace Homework_6.Managers
                             {
                                 stopWatch.Stop();
                                 var speed = new Random().Next(0, 30);
-                                var workout = new RunTracker {TimeWorkout=stopWatch.Elapsed, Distance=speed * stopWatch.Elapsed.TotalSeconds / 60 };
+                                var workout = new RunTracker { TimeWorkout = stopWatch.Elapsed, Distance = speed * stopWatch.Elapsed.TotalSeconds / 60 };
                                 run.Add(workout);
 
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -93,13 +97,14 @@ namespace Homework_6.Managers
             }
             Console.ReadKey();
         }
-        public void ShowDayActivity(int water) 
+
+        public void ShowDayActivity(int water)
         {
             Console.WriteLine($"Your activity today:" +
                 $"\n{run.Sum(x => x.TimeWorkout.TotalSeconds)}(seconds) and distance {run.Sum(x => x.Distance)}(kilometers)" +
                 $"\n steps {step.Sum()}" +
-                $"\n pulse {string.Join(";",pulse)} " +
+                $"\n pulse {string.Join(";", pulse)} " +
                 $"\n water {water}");
-        }       
+        }
     }
 }

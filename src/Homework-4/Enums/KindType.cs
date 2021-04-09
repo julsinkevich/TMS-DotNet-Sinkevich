@@ -1,10 +1,9 @@
 ﻿namespace hw4.Enums
 {
-    enum KindType
+    internal enum KindType
     {
-         None = 0,
-         Predator = 1,
-         Herbivorous = 2
-
+        None = 0,
+        Predator = 1,
+        Herbivorous = 2
     }
- }
+}

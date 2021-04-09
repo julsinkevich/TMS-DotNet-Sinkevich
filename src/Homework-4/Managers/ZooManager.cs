@@ -1,11 +1,10 @@
 ﻿using hw4.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace hw4.Managers
 {
-    class ZooManager
+    internal class ZooManager
     {
         private readonly AnimalManager _animalManager;
 
@@ -28,6 +27,7 @@ namespace hw4.Managers
                 Console.WriteLine("Животнoгo в зоопарке нет.");
             }
         }
+
         public void GetAllAnimal()
         {
             if (animals.Count > 0)
@@ -44,18 +44,21 @@ namespace hw4.Managers
                 Console.WriteLine("Животных в зоопарке нет.");
             }
         }
+
         public void SetAnimal(Animal animal)
         {
             animals.Add(animal);
         }
+
         public void Remove(string name)
         {
             var animal = FindAnimal(name);
             animals.Remove(animal);
         }
+
         private Animal FindAnimal(string name)
         {
-            foreach (var animal in animals) 
+            foreach (var animal in animals)
             {
                 if (animal.Name.ToLower() == name.ToLower())
                 {

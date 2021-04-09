@@ -5,16 +5,18 @@ using System;
 
 namespace Homework_6
 {
-    class Program
+    internal class Program
     {
         public static FitnessManager fitnessManager = new FitnessManager();
         public static WeatherServices weatherSetvise = new WeatherServices();
         private static int water = 0;
+
         public static void Main(string[] args)
         {
             weatherSetvise.Weather();
             ScreenSaver();
         }
+
         public static void ScreenSaver()
         {
             DateTime datenow = DateTime.Now;
@@ -36,6 +38,7 @@ namespace Homework_6
                 ScreenSaver();
             }
         }
+
         public static void MainMenu()
         {
             Console.WriteLine("1. Steps.");
@@ -60,6 +63,7 @@ namespace Homework_6
                         Console.ResetColor();
                     }
                     break;
+
                 case 2:
                     {
                         var tracker = new FitnessTracker();
@@ -71,6 +75,7 @@ namespace Homework_6
                         Console.ResetColor();
                     }
                     break;
+
                 case 3:
                     {
                         water = fitnessManager.Water(water);
@@ -80,16 +85,19 @@ namespace Homework_6
                         Console.ResetColor();
                     }
                     break;
+
                 case 4:
                     {
                         fitnessManager.RunType();
                     }
                     break;
+
                 case 5:
                     {
                         fitnessManager.ShowDayActivity(water);
                     }
                     break;
+
                 case 6:
                     {
                         Environment.Exit(0);
@@ -98,6 +106,7 @@ namespace Homework_6
             }
             Menu();
         }
+
         public static void Menu()
         {
             Console.WriteLine("1. Screen saver.");
@@ -111,6 +120,7 @@ namespace Homework_6
                         ScreenSaver();
                     }
                     break;
+
                 case 2:
                     {
                         MainMenu();

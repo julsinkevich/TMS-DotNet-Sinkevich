@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Globalization;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Homework_3
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             List<Note> notes = new List<Note>();
             string task;
@@ -30,13 +30,13 @@ namespace Homework_3
             Console.ReadKey();
         }
 
-        static string InputMessage()
+        private static string InputMessage()
         {
             Console.WriteLine("Message text:");
             return Console.ReadLine();
         }
 
-        static DateTime InputDate()
+        private static DateTime InputDate()
         {
             Console.WriteLine("Enter date: \"day:month:year hour:minute\" ");
             DateTime dateInput;
@@ -51,7 +51,7 @@ namespace Homework_3
         }
     }
 
-    class Note
+    internal class Note
     {
         public string Message;
         public DateTime Date;

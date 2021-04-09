@@ -4,11 +4,12 @@ using System;
 
 namespace hw4
 {
-    class Program
+    internal class Program
     {
         private static readonly AnimalManager _animalManager = new AnimalManager();
         private static readonly ZooManager _zoo = new ZooManager();
-        static void Main(string[] args)
+
+        private static void Main(string[] args)
         {
             while (true)
             {
@@ -32,7 +33,6 @@ namespace hw4
 
                     case 3:
                         {
-
                             Console.WriteLine("Введите имя:");
                             var name = Console.ReadLine();
                             _zoo.GetAnimal(name);
@@ -50,6 +50,7 @@ namespace hw4
                             Environment.Exit(0);
                         }
                         break;
+
                     default:
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
@@ -61,6 +62,7 @@ namespace hw4
                 Console.WriteLine();
             }
         }
+
         private static void InputAnimal()
         {
             Console.WriteLine("Введите имя:");
@@ -88,6 +90,7 @@ namespace hw4
 
             Console.WriteLine("Животное добавлено в зоопарк!\n");
         }
+
         private static void ShowMenu()
         {
             DateTime dateNow = DateTime.Now;

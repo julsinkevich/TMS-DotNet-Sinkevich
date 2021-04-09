@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Homework_6.Models;
+using Newtonsoft.Json; //www.youtube.com/watch?v=k91jTTdr0GM
+using System;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json; //www.youtube.com/watch?v=k91jTTdr0GM
-using Homework_6.Models;
 
 namespace Homework_6.Services
 {
-    class WeatherServices
+    internal class WeatherServices
     {
-        public void Weather() 
+        public void Weather()
         {
             string url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk&units=metric&appid=1d6de5c626ed1f4cef6c29a6e70b6944";
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
