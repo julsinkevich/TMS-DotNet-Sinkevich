@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Homework_6.Models
 {
-    class FitnessTracker
+    class FitnessTracker 
     {
         public DateTime DateTime { get; set; }
         public int Steps { get; set; }
